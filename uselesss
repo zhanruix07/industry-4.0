@@ -1,0 +1,54 @@
+#1-c
+# import tensorflow as tf
+
+# # Possible hidden layer configurations
+# hidden_configs = [(64,), (128,), (256,), (64, 64), (128, 128), (256, 256)]
+
+# # Variables to keep track of the optimal model, loss, accuracy, layers, and units
+# modelOpt, lossOpt, accOpt, layersOpt, unitsOpt = None, None, None, None, None
+
+# # Loop through the possible hidden layer configurations
+# for config in hidden_configs:
+#     # Create a model
+#     model = tf.keras.Sequential()
+
+#     # Add hidden layers
+#     for units in config:
+#         model.add(tf.keras.layers.Dense(units, activation='relu'))
+
+#     # Add final dense layer with softmax activation
+#     model.add(tf.keras.layers.Dense(3, activation='softmax'))
+
+#     # Compile the model
+#     model.compile(optimizer='adam', loss=tf.keras.losses.SparseCategoricalCrossentropy(), metrics='accuracy')
+
+#     # Early stopping callback
+#     early_stopping = tf.keras.callbacks.EarlyStopping(monitor='val_loss', patience=10)
+
+#     # Train the model
+#     model.fit(pointsTrain, pointLabelsTrain, validation_data=(pointsVal, pointLabelsVal), epochs=1000, callbacks=[early_stopping], verbose=0)
+
+#     # Evaluate the model for the validation set
+#     lossVal, accVal = model.evaluate(pointsVal, pointLabelsVal, verbose=0)
+
+#     # Save the best model, loss, accuracy, layers, and units
+#     if modelOpt is None or accVal > accOpt:
+#         modelOpt = model
+#         lossOpt = lossVal
+#         accOpt = accVal
+#         layersOpt = len(config)
+#         unitsOpt = max(config)  # Choose the largest number of units in the optimal model
+
+# # Print details of the optimal model
+# print('Best loss over validation set:', lossOpt)
+# print('Best accuracy over validation set:', accOpt)
+# print('Number of hidden layers selected:', layersOpt)
+# print('Number of units per layer selected:', unitsOpt)
+
+
+
+#Test
+
+print("imagesTrain shape:", imagesTrain.shape)
+print("imagesLabel_training:", imagesTrain.shape)
+print("Total number of images:", len(imagesTrainDef) + len(imagesTrainOk) + len(imagesTestDef) + len(imagesTestOk))
