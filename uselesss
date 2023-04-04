@@ -44,3 +44,11 @@
 # print('Best accuracy over validation set:', accOpt)
 # print('Number of hidden layers selected:', layersOpt)
 # print('Number of units per layer selected:', unitsOpt)
+
+
+
+#Test
+
+print("imagesTrain shape:", imagesTrain.shape)
+print("imagesLabel_training:", imagesTrain.shape)
+print("Total number of images:", len(imagesTrainDef) + len(imagesTrainOk) + len(imagesTestDef) + len(imagesTestOk))
